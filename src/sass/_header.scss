@@ -1,5 +1,6 @@
 .header {
 	padding: 3rem;
+	border-radius: $border-radius-normal;
 	font-size: $font-size-normal;
 	background-color: $background-light;
 	&__container {
@@ -9,6 +10,7 @@
 	}
 	&__notifications {
 		font-size: 2rem;
+		color: $background-icon;
 	}
 	&__form {
 		position: relative;
@@ -27,5 +29,6 @@
 		top: 1rem;
 		left: 1rem;
 		font-size: 1.8rem;
+		color: $background-icon;
 	}
 }

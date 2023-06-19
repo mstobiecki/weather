@@ -1,0 +1,46 @@
+.app {
+	&__container {
+		margin-top: 2rem;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 3rem;
+		justify-items: center;
+		font-size: 1.6rem;
+	}
+	&__title {
+		margin: 4rem 0;
+		font-size: 2.5rem;
+	}
+	&__box {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		width: 100%;
+		padding: 3rem;
+		font-size: $font-size-normal;
+		background-color: $background-light;
+		border-radius: $border-radius-normal;
+	}
+	&__icon {
+		font-size: 3rem;
+		color: #7950f2;
+	}
+	&__text {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 2rem;
+	}
+	&__temperature-value,
+	&__rain--value,
+	&__sunrise--value,
+	&__sunset--value,
+	&__min-temperature--value,
+	&__max-temperature--value {
+		color: #7950f2;
+		font-weight: 700;
+		font-size: 2rem;
+	}
+}
