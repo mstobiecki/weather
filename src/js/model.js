@@ -24,7 +24,7 @@ export const loadWeather = async function () {
 		maxTemperature: forecastday.day.maxtemp_c,
 		maxTemperature: forecastday.day.maxtemp_c,
 		minTemperature: forecastday.day.mintemp_c,
-		changeRain: forecastday.day.daily_chance_of_rain,
+		chanceRain: forecastday.day.daily_chance_of_rain,
 	};
 	console.log(state);
 };
