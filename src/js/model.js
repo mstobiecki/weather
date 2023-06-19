@@ -8,12 +8,15 @@ export const state = {
 	},
 };
 
-export const loadWeather = async function () {
+export const loadWeather = async function (query) {
+	state.search.query = query;
+	console.log(state);
 	const data = await getJSON(
 		`${API_URL}?key=${API_KEY}&q=${state.search.query}&days=1&aqi=no&alerts=no
         `
 	);
 	console.log(data);
+
 	let current = data.current;
 	let forecastday = data.forecast.forecastday[0];
 
