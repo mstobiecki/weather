@@ -1,4 +1,5 @@
 import View from './View';
+import moment from 'moment';
 
 class WeatherView extends View {
 	parentElement = document.querySelector('.app__container');
@@ -32,14 +33,18 @@ class WeatherView extends View {
 		<span class="app__icon"><i class="fa-regular fa-sun"></i></span>
 		<div class="app__text">
 			<p class="app__sunrise">Wschód słońca</p>
-			<span class="app__sunrise--value">${this.data.sunrise}</span>
+			<span class="app__sunrise--value">${moment(this.data.sunrise, 'hh:mm A').format(
+				'HH:mm'
+			)}</span>
 		</div>
 	</div>
 	<div class="app__box">
 		<span class="app__icon"><i class="fa-regular fa-moon"></i></span>
 		<div class="app__text">
 			<p class="app__sunset">Zachód słońca</p>
-			<span class="app__sunset--value">${this.data.sunset}</span>
+			<span class="app__sunset--value">${moment(this.data.sunset, 'hh:mm A').format(
+				'HH:mm'
+			)}</span>
 		</div>
 	</div>
 	<div class="app__box">
