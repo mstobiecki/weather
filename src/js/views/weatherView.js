@@ -10,6 +10,7 @@ class WeatherView extends View {
 
 		const markup = this.generateMarkup();
 		this.parentElement.innerHTML = '';
+		this.parentElement.previousElementSibling.classList.remove('hidden');
 		this.parentElement.insertAdjacentHTML('afterbegin', markup);
 	}
 	generateMarkup() {

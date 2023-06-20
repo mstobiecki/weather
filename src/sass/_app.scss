@@ -24,7 +24,7 @@
 	}
 	&__icon {
 		font-size: 3rem;
-		color: #7950f2;
+		color: $color-purple-light;
 	}
 	&__text {
 		display: flex;
@@ -33,14 +33,31 @@
 		align-items: flex-end;
 		gap: 2rem;
 	}
+	&__spinner {
+		font-size: 5rem;
+		color: $color-purple-light;
+		i {
+			text-align: center;
+			animation: spinner 2s infinite linear;
+		}
+	}
 	&__temperature-value,
 	&__rain--value,
 	&__sunrise--value,
 	&__sunset--value,
 	&__min-temperature--value,
 	&__max-temperature--value {
-		color: #7950f2;
+		color: $color-purple-light;
 		font-weight: 700;
 		font-size: 2rem;
+	}
+}
+
+@keyframes spinner {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
 	}
 }
