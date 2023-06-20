@@ -8,19 +8,11 @@
 		font-size: $font-size-normal;
 	}
 	&__title {
-		margin: 4rem 0;
+		margin-bottom: 4rem;
 		font-size: 2.5rem;
 	}
 	&__box {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 2rem;
-		width: 100%;
-		padding: 3rem;
-		font-size: $font-size-normal;
-		background-color: $background-light;
-		border-radius: $border-radius-normal;
+		@include boxStyle;
 	}
 	&__icon {
 		font-size: 3rem;

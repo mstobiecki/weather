@@ -1,0 +1,24 @@
+.prediction {
+	&__container {
+		margin-top: 2rem;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: $gap-big;
+		justify-items: center;
+		font-size: $font-size-normal;
+	}
+	&__title {
+		margin-bottom: 4rem;
+		font-size: 2.5rem;
+	}
+	&__box {
+		@include boxStyle;
+	}
+	&__day {
+		font-weight: 500;
+	}
+	&__temperature {
+		font-weight: 700;
+		color: $color-purple-light;
+	}
+}
