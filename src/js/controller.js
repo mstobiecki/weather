@@ -10,7 +10,7 @@ const controlWeather = async function () {
 		const query = searchView.getQuery();
 		await model.loadWeather(query);
 
-		weatherView.render(model.state.weather);
+		weatherView.render(model.state.weather.current);
 	} catch (err) {
 		weatherView.renderError(err);
 	}
