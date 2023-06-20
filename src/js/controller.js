@@ -4,11 +4,16 @@ import weatherView from './views/weatherView.js';
 import searchView from './views/searchView.js';
 
 const controlWeather = async function () {
-	weatherView.renderSpinner();
-	const query = searchView.getQuery();
-	await model.loadWeather(query);
+	try {
+		weatherView.renderSpinner();
 
-	weatherView.render(model.state.weather);
+		const query = searchView.getQuery();
+		await model.loadWeather(query);
+
+		weatherView.render(model.state.weather);
+	} catch (err) {
+		weatherView.renderError(err);
+	}
 };
 
 const init = function () {

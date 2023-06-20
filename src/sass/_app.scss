@@ -3,9 +3,9 @@
 		margin-top: 2rem;
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
-		gap: 3rem;
+		gap: $gap-big;
 		justify-items: center;
-		font-size: 1.6rem;
+		font-size: $font-size-normal;
 	}
 	&__title {
 		margin: 4rem 0;
@@ -31,7 +31,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: flex-end;
-		gap: 2rem;
+		gap: $gap-medium;
 	}
 	&__spinner {
 		font-size: 5rem;
@@ -41,6 +41,16 @@
 			animation: spinner 2s infinite linear;
 		}
 	}
+	&__error {
+		margin-top: 3rem;
+		padding: 2rem;
+		border-radius: $border-radius-normal;
+		background-color: $background-light;
+	}
+	&__message {
+		font-size: $font-size-xl;
+		color: $color-error-message;
+	}
 	&__temperature-value,
 	&__rain--value,
 	&__sunrise--value,
@@ -49,7 +59,7 @@
 	&__max-temperature--value {
 		color: $color-purple-light;
 		font-weight: 700;
-		font-size: 2rem;
+		font-size: $font-size-xl;
 	}
 }
 

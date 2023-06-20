@@ -9,9 +9,14 @@ class WeatherView extends View {
 		this.data = data;
 
 		const markup = this.generateMarkup();
-		this.parentElement.innerHTML = '';
+
+		this.clear();
+
 		this.parentElement.previousElementSibling.classList.remove('hidden');
 		this.parentElement.insertAdjacentHTML('afterbegin', markup);
+	}
+	clear() {
+		return (this.parentElement.innerHTML = '');
 	}
 	generateMarkup() {
 		console.log(this.data);
