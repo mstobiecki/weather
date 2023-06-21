@@ -1,4 +1,4 @@
-import { API_URL, API_KEY } from './config';
+import { API_URL, API_KEY, DAYS } from './config';
 import { getJSON } from './helpers';
 
 export const state = {
@@ -15,7 +15,7 @@ export const loadWeather = async function (query) {
 	try {
 		state.search.query = query;
 		const data = await getJSON(
-			`${API_URL}?key=${API_KEY}&q=${state.search.query}&days=7&aqi=no&alerts=no
+			`${API_URL}?key=${API_KEY}&q=${state.search.query}&days=${DAYS}&aqi=no&alerts=no
         `
 		);
 		console.log(data);
@@ -38,11 +38,7 @@ export const loadWeather = async function (query) {
 		state.weather.days = data.forecast.forecastday.map((day) => {
 			return {
 				date: day.date,
-				sunrise: day.astro.sunrise,
-				sunset: day.astro.sunset,
 				maxTemperature: day.day.maxtemp_c,
-				minTemperature: day.day.mintemp_c,
-				chanceRain: day.day.daily_chance_of_rain,
 				icon: day.day.condition.icon,
 				altText: day.day.condition.text,
 			};

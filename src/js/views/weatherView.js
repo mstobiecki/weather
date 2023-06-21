@@ -3,23 +3,8 @@ import moment from 'moment';
 
 class WeatherView extends View {
 	parentElement = document.querySelector('.app__container');
-	data;
 
-	render(data) {
-		this.data = data;
-
-		const markup = this.generateMarkup();
-
-		this.clear();
-
-		this.parentElement.previousElementSibling.classList.remove('hidden');
-		this.parentElement.insertAdjacentHTML('afterbegin', markup);
-	}
-	clear() {
-		return (this.parentElement.innerHTML = '');
-	}
 	generateMarkup() {
-		console.log(this.data);
 		return `
 		<div class="app__box">
 		<span class="app__icon"><i class="fa-solid fa-temperature-half"></i></span>

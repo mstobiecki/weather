@@ -2,6 +2,7 @@ import * as model from './model.js';
 import View from './views/View.js';
 import weatherView from './views/weatherView.js';
 import searchView from './views/searchView.js';
+import predictionView from './views/predictionView.js';
 
 const controlWeather = async function () {
 	try {
@@ -11,8 +12,9 @@ const controlWeather = async function () {
 		await model.loadWeather(query);
 
 		weatherView.render(model.state.weather.current);
+		predictionView.render(model.state.weather.days);
 	} catch (err) {
-		weatherView.renderError(err);
+		weatherView.renderError(err.message);
 	}
 };
 
