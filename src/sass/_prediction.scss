@@ -26,3 +26,11 @@
 		color: $color-purple-light;
 	}
 }
+
+@media (min-width: $large-mobile) {
+	.prediction {
+		&__container {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}

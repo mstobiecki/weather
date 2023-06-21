@@ -63,3 +63,11 @@
 		transform: rotate(360deg);
 	}
 }
+
+@media (min-width: $large-mobile) {
+	.app {
+		&__container {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
