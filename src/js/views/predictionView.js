@@ -8,7 +8,6 @@ class PredictionView extends View {
 	generateMarkup() {
 		return this.data
 			.map((day) => {
-				console.log(day);
 				return `
             <div class="prediction__box">
             <p class="prediction__day">${moment(day.date)

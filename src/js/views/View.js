@@ -5,12 +5,13 @@ export default class View {
 		if (!data) return this.renderError();
 
 		this.data = data;
+		console.log(this.data);
 
 		const markup = this.generateMarkup();
 
 		this.clear();
 
-		this.parentElement.previousElementSibling.classList.remove('hidden');
+		this.parentElement.previousElementSibling?.classList.remove('hidden');
 		this.parentElement.insertAdjacentHTML('afterbegin', markup);
 	}
 	renderSpinner() {

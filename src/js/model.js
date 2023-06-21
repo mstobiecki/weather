@@ -9,6 +9,13 @@ export const state = {
 	search: {
 		query: 'Plock',
 	},
+	date: '',
+};
+
+export const loadDate = function () {
+	state.date = new Intl.DateTimeFormat(navigator.language, {
+		dateStyle: 'full',
+	}).format(new Date());
 };
 
 export const loadWeather = async function (query) {
@@ -18,7 +25,6 @@ export const loadWeather = async function (query) {
 			`${API_URL}?key=${API_KEY}&q=${state.search.query}&days=${DAYS}&aqi=no&alerts=no
         `
 		);
-		console.log(data);
 		if (data?.error?.code === 1006)
 			throw new Error('Nie znaleziono podanej miejscowości.');
 
