@@ -7,7 +7,9 @@ export const state = {
 		days: [],
 	},
 	search: {
-		query: 'Plock',
+		query: '',
+		latitude: {},
+		longitude: {},
 	},
 	date: '',
 };
@@ -18,13 +20,23 @@ export const loadDate = function () {
 	}).format(new Date());
 };
 
-export const loadWeather = async function (query) {
+export const loadWeather = async function (query, query2) {
 	try {
-		state.search.query = query;
-		const data = await getJSON(
-			`${API_URL}?key=${API_KEY}&q=${state.search.query}&days=${DAYS}&aqi=no&alerts=no
-        `
-		);
+		let data;
+
+		if (query && query2) {
+			data = await getJSON(
+				`${API_URL}?key=${API_KEY}&q=${state.search.latitude} ${state.search.longitude}&days=${DAYS}
+				`
+			);
+		} else {
+			state.search.query = query;
+			data = await getJSON(
+				`${API_URL}?key=${API_KEY}&q=${state.search.query}&days=${DAYS}
+				`
+			);
+		}
+
 		if (data?.error?.code === 1006)
 			throw new Error('Nie znaleziono podanej miejscowości.');
 
@@ -52,6 +64,20 @@ export const loadWeather = async function (query) {
 		});
 
 		console.log(state);
+	} catch (err) {
+		throw err;
+	}
+};
+
+export const loadPosition = async function () {
+	try {
+		const getLocation = new Promise((resolve, reject) => {
+			navigator.geolocation.getCurrentPosition(resolve, reject);
+		});
+		const position = await getLocation;
+
+		state.search.latitude = position.coords.latitude;
+		state.search.longitude = position.coords.longitude;
 	} catch (err) {
 		throw err;
 	}
