@@ -1,11 +1,23 @@
 @mixin boxStyle {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: $gap-medium;
 	width: 100%;
 	padding: 3rem;
 	font-size: $font-size-normal;
 	border-radius: $border-radius-normal;
 	background-color: $background-light;
+}
+
+@mixin flexSpaceBetween {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: $gap-medium;
+}
+
+@mixin button {
+	padding: 1rem;
+	text-align: center;
+	font-weight: 500;
+	cursor: pointer;
+	color: $color-purple-light;
+	background-color: $background-gray;
 }

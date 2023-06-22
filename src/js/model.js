@@ -45,6 +45,7 @@ export const loadWeather = async function (query) {
 			return {
 				date: day.date,
 				maxTemperature: day.day.maxtemp_c,
+				minTemperature: day.day.mintemp_c,
 				icon: day.day.condition.icon,
 				altText: day.day.condition.text,
 			};

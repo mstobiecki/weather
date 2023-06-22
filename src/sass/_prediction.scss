@@ -14,7 +14,12 @@
 		@include boxStyle;
 	}
 	&__day {
+		text-align: center;
 		font-weight: 500;
+	}
+	&__text {
+		@include flexSpaceBetween;
+		font-size: $font-size-xl;
 	}
 	&__icon {
 		width: 5.2rem;

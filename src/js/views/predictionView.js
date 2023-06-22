@@ -13,11 +13,13 @@ class PredictionView extends View {
             <p class="prediction__day">${moment(day.date)
 							.locale('pl')
 							.format('dddd')}</p>
+			<div class="prediction__text">
             <span class="prediction__temperature">${day.maxTemperature}°C</span>
             <img class="prediction__icon" src="http:${day.icon}" alt="${
 					day.altText
 				}">
-            </div>
+			</div>
+			</div>
             `;
 			})
 			.join('');
