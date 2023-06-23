@@ -6,7 +6,10 @@ class SearchView extends View {
 		const query = this.parentElement.querySelector('.header__input').value;
 		this.clearInput();
 
-		return query;
+		const firstLetterCapitalized =
+			query.split('').at(0).toUpperCase() + query.slice(1);
+
+		return firstLetterCapitalized;
 	}
 	clearInput() {
 		return (this.parentElement.querySelector('.header__input').value = '');

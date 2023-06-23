@@ -12,9 +12,9 @@ const timeout = function (seconds) {
 	});
 };
 
-export const getJSON = async function (url) {
+export const getJSON = async function (url, headers) {
 	try {
-		const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
+		const res = await Promise.race([fetch(url, headers), timeout(TIMEOUT_SEC)]);
 
 		if (!res.ok) throw new Error('Nie znaleziono podanej miejscowości.');
 

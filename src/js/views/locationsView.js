@@ -5,7 +5,7 @@ class LocationsView extends View {
 
 	addHandlerLocation(handler) {
 		this.parentElement.addEventListener('click', function (e) {
-			const query = e.target.dataset.name;
+			const query = e.target.textContent;
 			if (!query) return;
 
 			handler(query);

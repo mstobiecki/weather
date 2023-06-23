@@ -1,4 +1,10 @@
-import { API_URL, API_KEY, DAYS } from './config';
+import {
+	API_URL_WEATHER,
+	API_URL_TRANSLATE_CITY,
+	API_KEY_WEATHER,
+	API_KEY_TRANSLATE_CITY,
+	DAYS_WEATHER,
+} from './config';
 import { getJSON } from './helpers';
 
 export const state = {
@@ -8,6 +14,7 @@ export const state = {
 	},
 	search: {
 		query: '',
+		cityTranslated: '',
 		latitude: {},
 		longitude: {},
 	},
@@ -20,19 +27,30 @@ export const loadDate = function () {
 	}).format(new Date());
 };
 
+export const loadCityName = async function (query) {
+	state.search.query = query;
+
+	const translateCity = await getJSON(`${API_URL_TRANSLATE_CITY}${query}`, {
+		headers: { 'X-Api-Key': API_KEY_TRANSLATE_CITY },
+	});
+
+	state.search.cityTranslated = translateCity.at(0).name;
+
+	console.log(state);
+};
+
 export const loadWeather = async function (query, query2) {
 	try {
 		let data;
 
 		if (query && query2) {
 			data = await getJSON(
-				`${API_URL}?key=${API_KEY}&q=${state.search.latitude} ${state.search.longitude}&days=${DAYS}
+				`${API_URL_WEATHER}?key=${API_KEY_WEATHER}&q=${state.search.latitude} ${state.search.longitude}&days=${DAYS_WEATHER}
 				`
 			);
 		} else {
-			state.search.query = query;
 			data = await getJSON(
-				`${API_URL}?key=${API_KEY}&q=${state.search.query}&days=${DAYS}
+				`${API_URL_WEATHER}?key=${API_KEY_WEATHER}&q=${state.search.cityTranslated}&days=${DAYS_WEATHER}
 				`
 			);
 		}

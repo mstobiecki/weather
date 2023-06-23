@@ -16,6 +16,14 @@
 		justify-self: start;
 		font-size: 2.5rem;
 	}
+	&__title--special {
+		color: $color-purple-light;
+		display: flex;
+		margin-top: 2rem;
+		letter-spacing: 0.5px;
+		justify-content: center;
+		gap: 3rem;
+	}
 	&__box {
 		@include flexSpaceBetween;
 		@include boxStyle;
