@@ -20,21 +20,31 @@ const controlWeather = async function () {
 
 		weatherView.render(model.state.weather.current);
 		predictionView.render(model.state.weather.days);
+		predictionView.createHeading();
 	} catch (err) {
 		weatherView.renderError(err.message);
+		predictionView.clear();
 	}
 };
 
 const controlLocation = async function (query) {
-	await model.loadWeather(query);
+	try {
+		await model.loadWeather(query);
 
-	weatherView.render(model.state.weather.current);
-	predictionView.render(model.state.weather.days);
+		if (!query) throw new Error('Nie znaleziono podanej miejscowości.');
+
+		weatherView.render(model.state.weather.current);
+		predictionView.render(model.state.weather.days);
+		predictionView.createHeading();
+	} catch (err) {
+		predictionView.renderError(err.message);
+	}
 };
 
 const controlPosition = async function () {
+	weatherView.renderSpinner();
 	await model.loadPosition();
-	console.log(model.state);
+
 	await model.loadWeather(
 		model.state.search.latitude,
 		model.state.search.longitude
@@ -42,6 +52,7 @@ const controlPosition = async function () {
 
 	weatherView.render(model.state.weather.current);
 	predictionView.render(model.state.weather.days);
+	predictionView.createHeading();
 };
 
 const init = function () {

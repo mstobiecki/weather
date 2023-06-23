@@ -24,6 +24,12 @@ class PredictionView extends View {
 			})
 			.join('');
 	}
+	createHeading() {
+		const title = document.createElement('h1');
+		title.textContent = 'Prognoza';
+		title.classList.add('prediction__title');
+		this.parentElement.prepend(title);
+	}
 }
 
 export default new PredictionView();

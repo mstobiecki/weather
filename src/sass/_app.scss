@@ -1,14 +1,19 @@
 .app {
 	&__container {
 		margin-top: 2rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		justify-items: center;
 		gap: $gap-big;
 		font-size: $font-size-normal;
 	}
+	&__loading,
+	&__error {
+		grid-column: 1 / -1;
+	}
 	&__title {
+		grid-column: 1 / -1;
+		justify-self: start;
 		font-size: 2.5rem;
 	}
 	&__box {
@@ -68,8 +73,6 @@
 @media (min-width: $large-mobile) {
 	.app {
 		&__container {
-			display: grid;
-			justify-items: center;
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}

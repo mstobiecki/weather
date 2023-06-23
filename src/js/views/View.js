@@ -10,8 +10,6 @@ export default class View {
 		const markup = this.generateMarkup();
 
 		this.clear();
-
-		this.parentElement.previousElementSibling?.classList.remove('hidden');
 		this.parentElement.insertAdjacentHTML('afterbegin', markup);
 	}
 	renderSpinner() {
