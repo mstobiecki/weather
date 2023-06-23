@@ -1,6 +1,20 @@
+import { TIMEOUT_SEC } from './config';
+
+const timeout = function (seconds) {
+	return new Promise((_, reject) => {
+		setTimeout(() => {
+			reject(
+				new Error(
+					'Wystąpił problem z pobraniem danych. Spróbuj odświeżyć ponownie stronę.'
+				)
+			);
+		}, seconds * 1000);
+	});
+};
+
 export const getJSON = async function (url) {
 	try {
-		const res = await fetch(url);
+		const res = await Promise.race([fetch(url), timeout(TIMEOUT_SEC)]);
 
 		if (!res.ok) throw new Error('Nie znaleziono podanej miejscowości.');
 
