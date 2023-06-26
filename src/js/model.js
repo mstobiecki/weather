@@ -1,6 +1,7 @@
 import {
 	API_URL_WEATHER,
 	API_URL_TRANSLATE_CITY,
+	API_URL_REVERSE_GEOCODE,
 	API_KEY_WEATHER,
 	API_KEY_TRANSLATE_CITY,
 	DAYS_WEATHER,
@@ -30,13 +31,13 @@ export const loadDate = function () {
 export const loadCityName = async function (query) {
 	state.search.query = query;
 
+	if (query === 'Warszawa') query = 'warsaw';
+
 	const translateCity = await getJSON(`${API_URL_TRANSLATE_CITY}${query}`, {
 		headers: { 'X-Api-Key': API_KEY_TRANSLATE_CITY },
 	});
 
 	state.search.cityTranslated = translateCity.at(0).name;
-
-	console.log(state);
 };
 
 export const loadWeather = async function (query, query2) {
@@ -96,6 +97,12 @@ export const loadPosition = async function () {
 
 		state.search.latitude = position.coords.latitude;
 		state.search.longitude = position.coords.longitude;
+
+		const geocode = await getJSON(
+			`${API_URL_REVERSE_GEOCODE}${state.search.latitude},${state.search.longitude}?geoit=json`
+		);
+
+		state.search.query = geocode.city;
 	} catch (err) {
 		throw err;
 	}

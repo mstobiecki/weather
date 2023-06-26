@@ -5,7 +5,6 @@ class WeatherView extends View {
 	parentElement = document.querySelector('.app__container');
 
 	generateMarkup() {
-		console.log(this.data);
 		return `
 		<h1 class="app__title">Dzisiejsza pogoda dla miasta: <span class="app__title--special">${
 			this.data.search.query
