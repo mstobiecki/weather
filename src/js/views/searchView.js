@@ -3,7 +3,12 @@ class SearchView extends View {
 	parentElement = document.querySelector('.header__form');
 
 	getQuery() {
+		const exp = /[a-z]/;
+
 		const query = this.parentElement.querySelector('.header__input').value;
+
+		if (!exp.test(query)) return query;
+
 		this.clearInput();
 
 		const firstLetterCapitalized =

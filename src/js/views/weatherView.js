@@ -8,7 +8,7 @@ class WeatherView extends View {
 		return `
 		<h1 class="app__title">Dzisiejsza pogoda dla miasta: <span class="app__title--special">${
 			this.data.search.query
-		} <i class="fa-regular fa-heart"></i></span></h1>
+		}</h1>
 			<div class="app__box">
 			<span class="app__icon"><i class="fa-solid fa-temperature-half"></i></span>
 			<div class="app__text">

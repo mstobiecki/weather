@@ -81,8 +81,6 @@ export const loadWeather = async function (query, query2) {
 				altText: day.day.condition.text,
 			};
 		});
-
-		console.log(state);
 	} catch (err) {
 		throw err;
 	}

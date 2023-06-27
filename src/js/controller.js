@@ -16,6 +16,7 @@ const controlWeather = async function () {
 		weatherView.renderSpinner();
 
 		const query = searchView.getQuery();
+
 		await model.loadCityName(query);
 		await model.loadWeather(model.state.search.cityTranslated);
 
@@ -33,7 +34,7 @@ const controlLocation = async function (query) {
 	try {
 		predictionView.clear();
 		weatherView.renderSpinner();
-		console.log(query);
+
 		await model.loadCityName(query);
 		await model.loadWeather(model.state.search.cityTranslated);
 
@@ -50,7 +51,9 @@ const controlLocation = async function (query) {
 
 const controlPosition = async function () {
 	try {
+		predictionView.clear();
 		weatherView.renderSpinner();
+
 		await model.loadPosition();
 
 		await model.loadWeather(
