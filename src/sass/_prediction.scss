@@ -1,6 +1,6 @@
 .prediction {
 	&__container {
-		margin-top: 2rem;
+		margin-top: $margin-medium;
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
 		gap: $gap-big;

@@ -1,6 +1,6 @@
 @mixin boxStyle {
 	width: 100%;
-	padding: 3rem;
+	padding: $padding-big;
 	font-size: $font-size-normal;
 	border-radius: $border-radius-normal;
 	background-color: $background-light;
@@ -14,7 +14,7 @@
 }
 
 @mixin button {
-	padding: 1rem;
+	padding: $padding-small;
 	text-align: center;
 	font-weight: 500;
 	cursor: pointer;

@@ -1,6 +1,6 @@
 .app {
 	&__container {
-		margin-top: 2rem;
+		margin-top: $margin-medium;
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
 		justify-items: center;
@@ -19,7 +19,7 @@
 	&__title--special {
 		color: $color-purple-light;
 		display: flex;
-		margin-top: 2rem;
+		margin-top: $margin-medium;
 		letter-spacing: 0.5px;
 		justify-content: center;
 		gap: 3rem;
@@ -48,8 +48,8 @@
 		}
 	}
 	&__error {
-		margin-top: 3rem;
-		padding: 2rem;
+		margin-top: $margin-big;
+		padding: $margin-medium;
 		border-radius: $border-radius-normal;
 		background-color: $background-light;
 	}

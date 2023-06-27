@@ -1,5 +1,5 @@
 .header {
-	padding: 3rem;
+	padding: $padding-big;
 	border-radius: $border-radius-normal;
 	font-size: $font-size-normal;
 	background-color: $background-light;
@@ -18,7 +18,7 @@
 	&__input {
 		display: block;
 		width: 100%;
-		margin-top: 3rem;
+		margin-top: $margin-big;
 		padding: 1rem 1.5rem;
 		border: none;
 		text-align: center;
@@ -33,13 +33,13 @@
 	}
 	&__locations {
 		font-size: $font-size-normal;
-		margin-top: 3rem;
+		margin-top: $margin-big;
 	}
 	&__box {
-		margin-top: 2rem;
+		margin-top: $margin-medium;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		gap: 1rem;
+		gap: $gap-small;
 	}
 	&__city {
 		@include button;
@@ -48,7 +48,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-top: 2rem;
+		margin-top: $margin-medium;
 		@include button;
 	}
 }
