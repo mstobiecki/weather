@@ -1,4 +1,4 @@
-export const API_URL_WEATHER = 'http://api.weatherapi.com/v1/forecast.json';
+export const API_URL_WEATHER = 'https://api.weatherapi.com/v1/forecast.json';
 export const API_KEY_WEATHER = 'b34451eb067b4688a1e94627231906';
 export const DAYS_WEATHER = 8;
 
