@@ -26,7 +26,9 @@ const controlWeather = async function () {
 		predictionView.createHeading();
 	} catch (err) {
 		predictionView.clear();
-		weatherView.renderError(err.message);
+		weatherView.renderError(
+			'Wystąpił problem z pobraniem danych. Spróbuj ponownie odświeżyć stronę.'
+		);
 	}
 };
 
@@ -66,9 +68,7 @@ const controlPosition = async function () {
 		predictionView.render(model.state.weather.days);
 		predictionView.createHeading();
 	} catch (err) {
-		locationsView.renderError(
-			'Wystąpił problem z pobraniem danych. Spróbuj ponownie odświeżyć stronę.'
-		);
+		locationsView.renderError(err.message);
 	}
 };
 

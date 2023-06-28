@@ -100,7 +100,11 @@ export const loadPosition = async function () {
 			`${API_URL_REVERSE_GEOCODE}${state.search.latitude},${state.search.longitude}?geoit=json`
 		);
 
-		state.search.query = geocode.city;
+		const { city } = geocode;
+
+		if (city === 'Throttled! See geocode.xyz/pricing')
+			state.search.query = 'Pojawił się problem z API, odśwież stronę.';
+		else state.search.query = geocode.city;
 	} catch (err) {
 		throw err;
 	}

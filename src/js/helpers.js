@@ -15,7 +15,7 @@ const timeout = function (seconds) {
 export const getJSON = async function (url, headers) {
 	try {
 		const res = await Promise.race([fetch(url, headers), timeout(TIMEOUT_SEC)]);
-
+		console.log(res);
 		if (!res.ok) throw new Error('Nie znaleziono podanej miejscowości.');
 
 		const data = await res.json();
