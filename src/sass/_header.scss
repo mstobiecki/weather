@@ -40,8 +40,11 @@
 		grid-template-columns: repeat(2, 1fr);
 		gap: $gap-small;
 	}
-	&__city {
+
+	&__button {
 		@include button;
+		border: none;
+		font-weight: 700;
 	}
 	&__my-location {
 		display: flex;
@@ -49,6 +52,11 @@
 		align-items: center;
 		margin-top: $margin-medium;
 		@include button;
+	}
+	&__find {
+		border: none;
+		color: $color-purple-light;
+		font-weight: 700;
 	}
 }
 
